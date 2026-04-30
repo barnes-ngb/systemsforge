@@ -47,7 +47,7 @@ A selection of calibrated tools spanning directive systems, geometry pipelines, 
 </a>
 
 <div class="artifact-bar">
-  <a href="/work/moda-design-platform/" class="artifact-link">Internal Case Study →</a>
+  <a href="/work/moda-design-platform/" class="artifact-link">Case Study →</a>
 </div>
 
 <div class="divider"><span class="divider__label">Fabricator API / Feasibility</span></div>

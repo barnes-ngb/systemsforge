@@ -192,8 +192,6 @@ After applying directives, the system runs a verification pass:
 <div class="artifact-bar">
   <a href="/demo/" class="artifact-link">Live Demo</a>
   <a href="https://github.com/barnes-ngb/directive-engine" class="artifact-link">Repository</a>
-  <a href="#" class="artifact-link">Sample Dataset</a>
-  <a href="#" class="artifact-link">Export Spec (JSON)</a>
 </div>
 
 ---

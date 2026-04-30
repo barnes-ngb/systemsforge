@@ -171,13 +171,6 @@ For evaluating the demo in a realistic workflow (phone + printed sheet):
 <div class="artifact-bar">
   <a href="https://directive-engine.vercel.app/" class="artifact-link" target="_blank">Live Demo</a>
   <a href="https://github.com/barnes-ngb/directive-engine" class="artifact-link" target="_blank">Repository</a>
-  <a href="#" class="artifact-link">Sample Dataset (JSON)</a>
-  <a href="#" class="artifact-link">Export Spec</a>
-</div>
-
-<div class="artifact-bar">
-  <a href="#" class="artifact-link">API Documentation</a>
-  <a href="#" class="artifact-link">Integration Guide</a>
   <a href="/work/directive-engine/" class="artifact-link">Full Case Study →</a>
 </div>
 
