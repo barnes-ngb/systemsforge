@@ -1,104 +1,55 @@
 ---
 layout: ../layouts/BaseLayout.astro
-title: "About"
-description: "Software engineer building calibrated instruments for architectural fabrication — geometry tools, directive systems, and field verification pipelines."
+title: About — Nathan Barnes
+description: Design-to-fabrication systems engineer. I build calibrated instruments for physical work — geometry pipelines, CNC automation, field verification, fabrication-aware constraint engines.
 ---
 
 # About
 
-## Who I am
+I build **calibrated instruments for physical work**.
 
-I've spent the last decade at [A. Zahner Company](https://www.azahner.com/) — one of the most technically demanding architectural metal fabricators in the country — building the software layer between design models and the shop floor.
+The word I use for what I make is *instruments*, deliberately — not platforms, not apps. An instrument is a tool you can trust because its behavior is known and its output is reproducible. A geometry pipeline, a CNC automation script, a field-verification streamer, a fabrication-aware constraint engine — each one takes a messy, ambiguous signal and produces an unambiguous decision a person or a machine can act on.
 
-I started as a project engineer managing $2–10M metal facade installations, translating architectural intent into fabrication instructions while standing between architects, CNC operators, and field crews. I kept running into the same problem: the gap between what was designed and what could actually be built was filled with spreadsheets, tribal knowledge, and manual translation.
+That framing came out of years on a shop floor where the digital model never matched what was actually built. The gap between design intent and fabrication reality is where most hardware programs lose money, time, and people. Closing that gap is the work I keep returning to.
 
-So I started building tools to close that gap. A CNC automation platform adopted by 30+ engineers. A customer-facing 3D configurator. A real-time field verification system I personally deployed on-site. Fabrication constraint APIs that catch infeasible geometry before it reaches the shop.
+## How I got here
 
-I call these tools **instruments** — because like a good measuring instrument, they're precise, reliable, and transparent about what they're measuring. The philosophy below explains how I think about building them.
+I trained as an architect — M.Arch from UT Arlington with a Business minor, on top of an undergraduate degree in Architecture — and ended up in fabrication almost by accident. Field-tested at Zahner: bespoke metal envelopes, complex curved systems, projects where every panel was unique and every tolerance was tight.
 
----
+What I learned there is that the hardest manufacturing problems aren't in the machines. They're in the gap between what the designer intended and what the shop floor can actually build. I built instruments to close that gap.
 
-## Operating Principles
+A few of them:
 
-The instruments I build share common calibration standards:
+- **ZEMaPP** — a hybrid C# / Python / Grasshopper platform that preps CNC fabrication files for unique-part production. Used across the engineering team. Handles tens of thousands of unique components per project.
+- **MODA** — a browser-based 3D configurator that translates customer design selections into spec-ready build configurations with integrated quoting. React, Three.js, TypeScript.
+- **SurveyLink** — a real-time field verification platform that streams 3D positional data from a robotic total station to a web app. Documented in a [peer-reviewed paper](https://www.tandfonline.com/doi/abs/10.1080/24751448.2022.2116230) (*Construction Robotics, Taylor & Francis, 2022*); the published case reports a ~65% field-layout time reduction and thousands of anchor placements verified in-situ.
+- **Directive Engine** — takes point cloud scan data, compares against nominal design models, and emits DOF-aware correction directives (move, rotate, index) with visualization and verification. Live at [directive-engine.vercel.app](https://directive-engine.vercel.app).
 
-<div class="directive-card">
-  <h4 class="directive-card__title">Constraints-Aware</h4>
-  <div class="directive-card__constraints">
-    <span class="chip chip--clamped">DOF LIMITS</span>
-    <span class="chip">DEPENDENCIES</span>
-  </div>
-  <p class="directive-card__action">Every correction lives within physical and procedural limits. No impossible instructions.</p>
-</div>
+The full set is on [Work](/work). The pattern across all of them is the same: a signal comes in, a constraint engine reasons about feasibility and tolerance, and a directive comes out that someone — or some machine — can execute.
 
-<div class="directive-card">
-  <h4 class="directive-card__title">Verification-First</h4>
-  <div class="directive-card__constraints">
-    <span class="chip chip--ok">PASS</span>
-    <span class="chip chip--blocked">FAIL</span>
-  </div>
-  <p class="directive-card__action">Before/after metrics that prove the gap is closed. No "trust me" outputs.</p>
-</div>
+## What I work on
 
-<div class="directive-card">
-  <h4 class="directive-card__title">Field-Executable</h4>
-  <div class="directive-card__constraints">
-    <span class="chip">UNAMBIGUOUS</span>
-    <span class="chip">REFERENCE FRAME</span>
-  </div>
-  <p class="directive-card__action">Clear steps in known coordinate systems. No interpretation required.</p>
-</div>
+The problem shape I'm built for shows up across industries — energy hardware (battery packs, electrolyzers), defense and space hardware (rocket motors, satellite assemblies, autonomous vessels), and the next generation of design-to-fabrication SaaS. The wrapper changes; the problem doesn't. Complex 3D geometry has to become a real physical thing, and the pipeline between design intent and fabrication reality is broken.
 
-> The best software for physical work acts like a good instrument: precise, reliable, and transparent about what it's measuring.
+Metal building envelopes are where I learned this. The problem rhymes anywhere a unique part has to be built right the first time.
 
----
+## How I work
 
-## Technical Specification
+I lead through demonstration, not authority. Show me the problem, give me the room, and I come back with something that works. I'm at my best in the middle of a project that already has momentum.
 
-<div class="metric-grid">
-  <div class="metric-card">
-    <span class="metric-card__label">Languages</span>
-    <span class="metric-card__value" style="font-size: 1.1rem;">Python, C#, TypeScript</span>
-  </div>
-  <div class="metric-card">
-    <span class="metric-card__label">Approach</span>
-    <span class="metric-card__value" style="font-size: 1.1rem;">Pragmatic Automation</span>
-  </div>
-</div>
+I develop people by pointing them at gaps and clearing obstacles, not by assigning tasks or running process. I do my best thinking in environments where the work itself is the argument.
 
-**Domains:**
-- Geometry pipelines (mesh/NURBS/point cloud)
-- Tolerance analysis and deviation mapping
-- Web 3D visualization (Three.js, browser-first)
-- Field-to-model alignment workflows
+## Outside the work
 
----
+Most Saturday mornings are *Dad Lab* — a learning rhythm I run with my two kids, where we build things, break things, ask *what if*, and end every session with the older one teaching the younger one what just happened. The artifact is the evidence; if you can't explain it, you don't understand it.
 
-## Current Instrument
+Dad Lab sits inside a bigger frame: **First Principles Foundry**, the homeschool we run as a family. Like everything else I work on, I've instrumented it — AI-assisted lesson setup, an evaluation system that tracks progress across subjects, and a growing toolkit of small tools that augment the day-to-day. The kids don't know they're inside a build system. They just know learning is the work, and the work makes things.
 
-Building the **Directive Engine**: a system that converts nominal ↔ as-built deltas into installer-ready directive cards with 3D visualization and verification loops.
+That, more than anything else on this site, explains why I build the way I do.
 
-<div class="artifact-bar">
-  <a href="/demo/" class="btn btn--primary">Try the Demo</a>
-  <a href="/work/directive-engine/" class="artifact-link">Case Study →</a>
-</div>
+## Reach me
 
----
-
-## What I'm looking for
-
-I'm exploring roles at the intersection of design, fabrication, and software — particularly at early-stage companies in AEC-prefab, modular construction, or manufacturing automation where my combination of architecture training, fabrication floor experience, and full-stack engineering creates real leverage.
-
-I'm at my best when I'm building systems that other people can use repeatedly, working close to the physical problem, and helping grow the people around me.
-
-[Resume (PDF) →](/resume.pdf) · [LinkedIn →](https://linkedin.com/in/barnesngb) · [Email →](mailto:barnes.ngb@gmail.com)
-
----
-
-## Contact
-
-<div class="artifact-bar">
-  <a href="mailto:barnes.ngb@gmail.com" class="artifact-link">barnes.ngb@gmail.com</a>
-  <a href="https://www.linkedin.com/in/barnesngb/" class="artifact-link">LinkedIn</a>
-  <a href="https://github.com/barnes-ngb" class="artifact-link">GitHub</a>
-</div>
+- Email: [barnes.ngb@gmail.com](mailto:barnes.ngb@gmail.com)
+- LinkedIn: [in/barnesngb](https://www.linkedin.com/in/barnesngb/)
+- GitHub: [barnes-ngb](https://github.com/barnes-ngb)
+- Instagram: [_nathanbarnes_](https://www.instagram.com/_nathanbarnes_/)
