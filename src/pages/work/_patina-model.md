@@ -4,6 +4,8 @@ title: "patina-model (Open-source)"
 description: "Python package for predicting patina phase evolution."
 ---
 
+<!-- Withdrawn from public catalog May 12, 2026 — underlying GitHub repo taken private. Restore when repo returns to public. -->
+
 # patina-model
 
 **Repo:** https://github.com/barnes-ngb/patina-model

@@ -6,7 +6,7 @@ description: "Building instruments that turn as-built reality into installer-rea
 
 # Nathan Barnes
 
-I'm a design-to-fabrication systems engineer with 11+ years bridging digital models and physical manufacturing — building geometry pipelines, CNC automation, customer-facing configurators, and field verification tools at one of the most demanding architectural fabricators in the country.
+I'm a design-to-fabrication systems engineer building geometry pipelines, CNC automation, customer-facing configurators, and field verification tools for complex architectural manufacturing.
 
 I call these tools **calibrated instruments for physical work** — each one turns messy field reality into unambiguous, executable decisions.
 
@@ -108,15 +108,7 @@ The hardest part of installing complex assemblies isn't detecting that something
 
 ---
 
-## Currently
-
-Exploring what's next at the intersection of design, fabrication, and software — particularly in **AEC-prefab, modular construction, and manufacturing automation**. The same design-to-fabrication translation problem I solved for bespoke curved metal applies directly to standardized panel systems at higher volume and greater scale.
-
----
-
 ## Get in Touch
-
-Building something that needs to bridge design intent and field reality?
 
 <div class="artifact-bar">
   <a href="mailto:barnes.ngb@gmail.com" class="artifact-link">barnes.ngb@gmail.com</a>

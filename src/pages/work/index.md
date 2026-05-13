@@ -75,19 +75,6 @@ A selection of calibrated tools spanning directive systems, geometry pipelines, 
   <p>Public R&amp;D references hosted by Zahner. This catalog links out to employer-owned sources without reproducing assets.</p>
 </a>
 
-<div class="divider"><span class="divider__label">Open Source</span></div>
-
-## Open-source
-
-<a href="/work/patina-model/" class="project-card">
-  <div class="project-card__meta">
-    <span class="chip chip--ok">PUBLISHED</span>
-    <span class="chip">PYTHON</span>
-  </div>
-  <h3>patina-model</h3>
-  <p>Python model for predicting patina phase evolution on weathering steel and copper alloys. Used for finish lifecycle planning.</p>
-</a>
-
 ---
 
 ## Instrument Template

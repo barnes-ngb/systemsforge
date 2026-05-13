@@ -73,26 +73,3 @@ description: "Directive Engine demo — a 5-beat guided walkthrough bridging det
   <a href="https://github.com/barnes-ngb/directive-engine" class="artifact-link" target="_blank" rel="noopener">Repository</a>
   <a href="/work/directive-engine/" class="artifact-link">Full Case Study →</a>
 </div>
-
----
-
-## Questions or Feedback?
-
-Testing this for your VDC, reality capture, or field installation workflow?
-
-<div class="artifact-bar">
-  <a href="mailto:barnes.ngb@gmail.com" class="btn btn--secondary">barnes.ngb@gmail.com</a>
-  <a href="https://www.linkedin.com/in/barnesngb/" class="artifact-link">LinkedIn</a>
-</div>
-
-<div class="callout callout--info">
-  <span class="callout__icon">💬</span>
-  <div class="callout__content">
-    I'm especially interested in feedback from teams doing:
-    <ul style="margin-bottom:0">
-      <li>Facade installation with tight tolerances</li>
-      <li>MEP coordination with scan-to-BIM workflows</li>
-      <li>Prefab assembly with field verification</li>
-    </ul>
-  </div>
-</div>
