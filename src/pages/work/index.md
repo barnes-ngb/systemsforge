@@ -1,79 +1,63 @@
 ---
 layout: ../../layouts/BaseLayout.astro
 title: "Work"
-description: "Instruments I've built: directive systems, geometry tools, and field verification pipelines."
+description: "Instruments I've built. Stage and year, plainly listed."
 ---
 
-# Instrument Catalog
+<div class="title-block">
+  <div class="title-block__id">work / index · rev 1</div>
+</div>
 
-A selection of calibrated tools spanning directive systems, geometry pipelines, and architectural fabrication.
+<div class="page-header">
+  <h1 class="page-header__title">Work</h1>
+  <p class="page-header__subtitle">Instruments I've built. Stage and year, plainly listed.</p>
+</div>
 
-<div class="callout callout--info">
-  <span class="callout__icon">📐</span>
-  <div class="callout__content">
-    Each project is documented as an <strong>instrument</strong> — with inputs, calibration methods, constraints, and verification protocols.
+<div class="summary-strip">
+  <span><span class="summary-strip__label">instruments </span>3</span>
+  <span><span class="summary-strip__label">deployed </span>3</span>
+  <span><span class="summary-strip__label">earliest </span>2025</span>
+  <span><span class="summary-strip__label">latest </span>2026</span>
+</div>
+
+<div class="catalog-group-label">deployed</div>
+
+<div class="catalog-row">
+  <span class="catalog-row__index">01</span>
+  <div class="catalog-row__body">
+    <div class="catalog-row__title"><a href="/work/directive-engine/">Directive Engine</a></div>
+    <div class="catalog-row__subtitle">Convert nominal ↔ as-built deltas into installer-ready directive cards.</div>
+  </div>
+  <div class="catalog-row__meta">
+    <span class="status-chip status-chip--deployed">deployed</span>
+    <span class="catalog-row__year">2025 · ts</span>
+    <a href="https://directive-engine.vercel.app/" class="catalog-row__sublink" target="_blank" rel="noopener">live demo →</a>
   </div>
 </div>
 
----
-
-## Flagship: Directive Engine
-
-<a href="/work/directive-engine/" class="project-card">
-  <div class="project-card__meta">
-    <span class="chip chip--ok">CALIBRATED</span>
-    <span class="chip">BROWSER-FIRST</span>
+<div class="catalog-row">
+  <span class="catalog-row__index">02</span>
+  <div class="catalog-row__body">
+    <div class="catalog-row__title"><a href="/work/moda-design-platform/">Moda Design Platform</a></div>
+    <div class="catalog-row__subtitle">Interactive design platform for exploring configurable facade patterns, finishes, and fabrication-ready options.</div>
   </div>
-  <h3>Directive Engine</h3>
-  <p>Convert nominal ↔ as-built deltas into <strong>installer-ready directive cards</strong> with 3D visualization and verification loops. The core of my current work: bridging detection and execution for field teams.</p>
-</a>
-
-<div class="artifact-bar">
-  <a href="/demo/" class="btn btn--primary">Try Live Demo</a>
-  <a href="/work/directive-engine/" class="artifact-link">Full Case Study →</a>
+  <div class="catalog-row__meta">
+    <span class="status-chip status-chip--deployed">deployed</span>
+    <span class="catalog-row__year">2026 · ts</span>
+  </div>
 </div>
 
-<div class="divider"><span class="divider__label">Design Platforms</span></div>
-
-## Design Platforms: Moda Design Platform
-
-<a href="https://azahner.com/moda-design-tool/" class="project-card">
-  <div class="project-card__meta">
-    <span class="chip">CONFIGURATOR</span>
-    <span class="chip">DESIGN SYSTEM</span>
+<div class="catalog-row">
+  <span class="catalog-row__index">03</span>
+  <div class="catalog-row__body">
+    <div class="catalog-row__title"><a href="/work/fabricator-api/">Fabricator API</a></div>
+    <div class="catalog-row__subtitle">Parametric feasibility tooling that evaluates panelization, tolerances, and fabrication constraints directly in design workflows.</div>
   </div>
-  <h3>Moda Design Platform</h3>
-  <p>Interactive design platform for exploring configurable facade patterns, finishes, and fabrication-ready options. Built to align design intent with manufacturable outputs.</p>
-</a>
-
-<div class="artifact-bar">
-  <a href="/work/moda-design-platform/" class="artifact-link">Case Study →</a>
+  <div class="catalog-row__meta">
+    <span class="status-chip status-chip--deployed">deployed</span>
+    <span class="catalog-row__year">2025 · grasshopper</span>
+  </div>
 </div>
-
-<div class="divider"><span class="divider__label">Fabricator API / Feasibility</span></div>
-
-## Fabricator API / Feasibility: Grasshopper tooling
-
-<a href="/work/fabricator-api/" class="project-card">
-  <div class="project-card__meta">
-    <span class="chip">GRASSHOPPER</span>
-    <span class="chip chip--clamped">SUMMARY ONLY</span>
-  </div>
-  <h3>Fabricator API</h3>
-  <p>Parametric feasibility tooling that evaluates panelization, tolerances, and fabrication constraints directly in design workflows. Summary-only listing until a public reference is available.</p>
-</a>
-
-<div class="divider"><span class="divider__label">Public References (Employer Work)</span></div>
-
-## Public references (employer work): Zahner Labs
-
-<a href="https://www.azahner.com/labs/" class="project-card">
-  <div class="project-card__meta">
-    <span class="chip chip--clamped">LINK-OUT ONLY</span>
-  </div>
-  <h3>Zahner Labs</h3>
-  <p>Public R&amp;D references hosted by Zahner. This catalog links out to employer-owned sources without reproducing assets.</p>
-</a>
 
 ---
 

@@ -215,9 +215,12 @@ The repeating row in the work index.
   <div class="catalog-row__meta">
     <span class="status-chip status-chip--deployed">deployed</span>
     <span class="catalog-row__year">2025 · ts</span>
+    <a href="..." class="catalog-row__sublink">live demo →</a>
   </div>
 </div>
 ```
+
+`.catalog-row__sublink` — small mono secondary link inside `__meta`. Use for at-most-one quiet pointer per row (live demo, external repo, paper). Patina text, hairline underline, mono, text-xs. Never use for the primary case-study link — that's the row title itself, which is the whole row's primary affordance.
 
 ### 2.7 Limits callout
 
