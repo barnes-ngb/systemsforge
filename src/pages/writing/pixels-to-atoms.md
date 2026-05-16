@@ -6,9 +6,25 @@ image: "/images/writing/csc-anchor-position.jpg"
 pubDate: 2026-05-13
 ---
 
-# Pixels to atoms: the missing layer in fabrication
+<div class="title-block">
+  <div class="title-block__id">writing / 2026 · 01</div>
+</div>
 
-![California Science Center expansion. Photo by Nathan Barnes.](/images/writing/csc-zepp-hang.jpg)
+<div class="page-header">
+  <h1 class="page-header__title">Pixels to atoms: the missing layer in fabrication</h1>
+  <p class="page-header__subtitle">The fabrication industry has spent thirty years building software for design and almost nothing for execution. A look at the missing translation layer.</p>
+</div>
+
+<div class="metadata-strip">
+  <span><span class="metadata-strip__label">published </span>2026-05-13</span>
+  <span><span class="metadata-strip__label">reading </span>7 min</span>
+  <span><span class="metadata-strip__label">tags </span>fabrication, field, directives</span>
+</div>
+
+<figure class="figure">
+  <img src="/images/writing/csc-zepp-hang.jpg" alt="California Science Center expansion. Photo by Nathan Barnes." />
+  <figcaption class="figure__caption">fig 01 · california science center expansion — installation in progress</figcaption>
+</figure>
 
 A panel arrives at the job site. The drawing says it goes here. The four bolts go through these holes. The crew lifts it, brings it to the wall, and the holes don't line up.
 
@@ -18,7 +34,10 @@ So the crew has a panel that won't fit. The foreman calls the office. The office
 
 Or, in the version I've watched happen, the crew finds a way. Someone gets out a grinder. Someone elongates a hole. The panel goes up, but the as-built doesn't match the model anymore. Nobody updates the model. The next panel hits the same problem. The cycle continues.
 
-![Field marks on an installed anchor — the work of translating model coordinates into physical position, done with chalk and judgment.](/images/writing/csc-anchor-position.jpg)
+<figure class="figure">
+  <img src="/images/writing/csc-anchor-position.jpg" alt="Field marks on an installed anchor — the work of translating model coordinates into physical position, done with chalk and judgment." />
+  <figcaption class="figure__caption">fig 02 · field marks on an installed anchor — chalk and judgment translating model to position</figcaption>
+</figure>
 
 This is a structural problem, not a quality problem. The model and the field run on different operating systems. The model OS speaks in nominal coordinates, ideal geometry, infinite precision. The field OS speaks in deviations, tolerances, drift. The two systems don't share a vocabulary, so every translation between them costs time, costs material, costs someone's afternoon.
 
@@ -44,7 +63,10 @@ A directive tells you: *translate −6.5mm along slot S2, rotate to index 0 on P
 
 That's the missing layer.
 
-![Pixels to atoms — the translation layer makes captured reality into installer-executable action.](/images/writing/translation-layer-diagram.webp)
+<figure class="figure">
+  <img src="/images/writing/translation-layer-diagram.webp" alt="Pixels to atoms — the translation layer makes captured reality into installer-executable action." />
+  <figcaption class="figure__caption">fig 03 · the translation layer — captured reality to installer-executable action</figcaption>
+</figure>
 
 ## What I built
 
