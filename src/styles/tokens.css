@@ -1,10 +1,8 @@
 /* ============================================================
    SystemsForge — Design Tokens
-   See VISUAL_SYSTEM.md for rationale and intended use.
+   See visual-system/Visual System.md for rationale and intended use.
+   Fonts are loaded via <link> in BaseLayout.astro, not @import here.
    ============================================================ */
-
-/* Font imports — IBM Plex family + Fraunces (lab pages) */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap');
 
 :root {
   /* ---------- Color (light mode) ---------- */
@@ -73,9 +71,31 @@
   --page-pad-x:   clamp(20px, 5vw, 40px);
 }
 
-/* ---------- Dark mode ---------- */
+/* ---------- Dark mode — explicit override.
+   The theme toggle in BaseLayout.astro writes data-theme="dark" to <html>;
+   this takes precedence over the system-pref media query below. ---------- */
+:root[data-theme="dark"] {
+  --paper:           #14181C;
+  --surface:         #1B2025;
+  --ink:             #ECECEC;
+  --ink-secondary:   #A6A6A6;
+  --ink-tertiary:    #6B6B6B;
+
+  --accent:          #7FAB99;
+  --accent-soft:     #22302C;
+
+  --border:          rgba(236, 236, 236, 0.14);
+  --border-strong:   rgba(236, 236, 236, 0.25);
+
+  --status-info:     #7AAFE0;
+  --status-warning:  #E0AC5C;
+  --status-danger:   #E08585;
+}
+
+/* ---------- Dark mode — system-preference fallback.
+   Scoped to skip when the user has explicitly chosen light via the toggle. ---------- */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper:           #14181C;
     --surface:         #1B2025;
     --ink:             #ECECEC;
@@ -108,6 +128,7 @@ html {
 body {
   margin: 0;
   background: var(--paper);
+  font-family: var(--font-sans);
   color: var(--ink);
 }
 

@@ -49,7 +49,7 @@ Before full implementation, the following are PROPOSED and need sign-off. The CS
 
 ### 1.1 Color
 
-All tokens defined on `:root`, overridden under `@media (prefers-color-scheme: dark)`.
+All tokens defined on `:root`, overridden under `:root[data-theme="dark"]` for the explicit toggle and under `@media (prefers-color-scheme: dark)` (scoped to `:root:not([data-theme="light"])`) as the system-preference fallback. The toggle in `BaseLayout.astro` writes `data-theme` to `<html>`; the explicit selector wins over the media query so a user choice always sticks.
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
