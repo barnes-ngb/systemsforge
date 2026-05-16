@@ -248,6 +248,47 @@ The two-column research-note layout. Margin column on the left holds date / entr
 </article>
 ```
 
+### 2.9 Writing footer
+
+Closes every writing post (and any future post-template page like lab entries that read as authored pieces). Three jobs only: mark the end of the post, attribute it, point somewhere useful next.
+
+```html
+<footer class="writing-footer">
+  <div class="writing-footer__end-mark">— end · entry 011 · 2026-05-13</div>
+
+  <div class="writing-footer__byline">
+    <div class="writing-footer__name">Nathan Barnes</div>
+    <div class="writing-footer__role">
+      Design-to-Fabrication Systems Engineer ·
+      <a href="mailto:barnes.ngb@gmail.com" class="writing-footer__contact">barnes.ngb@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="writing-footer__see-also">
+    <div class="writing-footer__see-also-label">see also</div>
+    <ul class="writing-footer__see-also-list">
+      <li class="writing-footer__see-also-item">
+        <a href="/work/directive-engine" class="writing-footer__see-also-link">Directive Engine</a>
+        <span class="writing-footer__see-also-tag">instrument 03</span>
+      </li>
+      <li class="writing-footer__see-also-item">
+        <a href="/demo" class="writing-footer__see-also-link">Live demo</a>
+        <span class="writing-footer__see-also-tag">browser</span>
+      </li>
+    </ul>
+  </div>
+</footer>
+```
+
+**Rules:**
+
+- End-mark format: `— end · entry NNN · YYYY-MM-DD`. The em-dash + tracking-wider mono treatment matches figure captions. Entry number is the same one used in the title block at the top of the page; date is the post's published date.
+- Byline is always present. Name + role + contact, in that order, in restrained sans.
+- See-also is optional but should appear whenever the post has at least one meaningful related link. Don't pad with filler — three rows is plenty, two is fine, zero is acceptable.
+- See-also items have two parts: a link on the left (the thing), a mono tag on the right (what kind of thing it is). Tag examples: `instrument 03`, `entry 010`, `browser`, `paper · acadia 2024`, `github`, `external`.
+- No share buttons, no subscribe forms, no comments, no social row, no headshot. The footer is restrained on purpose.
+- On lab pages (§2.8), the `.writing-footer` is not used — lab entries close more like log entries and need their own pattern when the time comes.
+
 ---
 
 ## 3 · Implementation plan
@@ -271,6 +312,8 @@ Convert one page at a time. Don't try to update all five at once.
 3. `work/index.md` — catalog. Rebuild as catalog rows grouped by stage.
 4. `about.md` — bio. Lightweight: title block, prose.
 5. `contact.md` — contact. Lightweight: title block, prose.
+6. `writing/*.md` — apply title block, metadata strip, figure pattern,
+   and close with .writing-footer (§2.9).
 
 Per page: read the existing content, wrap in the new patterns, verify visually, commit.
 
