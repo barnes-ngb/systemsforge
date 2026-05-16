@@ -7,6 +7,8 @@ pubDate: 2026-05-13
 
 # Pixels to atoms: the missing layer in fabrication
 
+![California Science Center expansion. Photo by Nathan Barnes.](/images/writing/csc-zepp-hang.jpg)
+
 A panel arrives at the job site. The drawing says it goes here. The four bolts go through these holes. The crew lifts it, brings it to the wall, and the holes don't line up.
 
 This happens. It always happens. Not because anyone made a mistake. The panel was fabricated to spec, the wall was built to spec, the model says they should fit. But the model assumes the wall is perfect. The wall isn't. It's eight millimeters off in two places. The structure has settled since the drawings were issued. The column the panel attaches to has a small twist in it from a thermal cycle three months ago.
@@ -14,6 +16,8 @@ This happens. It always happens. Not because anyone made a mistake. The panel wa
 So the crew has a panel that won't fit. The foreman calls the office. The office tells him to wait. An engineer eventually drives out, takes measurements, goes back to the office, modifies the panel, sends it to the shop, the shop modifies it, sends it back. Three days have passed. Three days where everyone else on the floor is waiting on this one panel.
 
 Or, in the version I've watched happen, the crew finds a way. Someone gets out a grinder. Someone elongates a hole. The panel goes up, but the as-built doesn't match the model anymore. Nobody updates the model. The next panel hits the same problem. The cycle continues.
+
+![Field marks on an installed anchor — the work of translating model coordinates into physical position, done with chalk and judgment.](/images/writing/csc-anchor-position.jpg)
 
 This is a structural problem, not a quality problem. The model and the field run on different operating systems. The model OS speaks in nominal coordinates, ideal geometry, infinite precision. The field OS speaks in deviations, tolerances, drift. The two systems don't share a vocabulary, so every translation between them costs time, costs material, costs someone's afternoon.
 
@@ -38,6 +42,8 @@ A scan tells you the wall is eight millimeters off. It doesn't tell you what to 
 A directive tells you: *translate −6.5mm along slot S2, rotate to index 0 on P3, verify residual under 2mm.*
 
 That's the missing layer.
+
+![Pixels to atoms — the translation layer makes captured reality into installer-executable action.](/images/writing/translation-layer-diagram.webp)
 
 ## What I built
 
