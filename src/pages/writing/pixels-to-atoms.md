@@ -110,11 +110,32 @@ I'm not claiming Directive Engine works for any of these. The math primitives tr
 
 But the structural diagnosis is the same. The model OS and the field OS speak different languages. Somebody has to translate. The cheapest place to put that somebody is in software, where they can compose, where they can be tested, where they can run when nobody's watching.
 
----
+<footer class="writing-footer">
+  <div class="writing-footer__end-mark">— end · 2026-05-13</div>
 
-The demo is at [directive-engine.vercel.app](https://directive-engine.vercel.app/). The case study walks the engine's reasoning and includes a CLI section showing how to run it against your own point cloud. The repo is MIT-licensed at [github.com/barnes-ngb/directive-engine](https://github.com/barnes-ngb/directive-engine).
+  <div class="writing-footer__byline">
+    <div class="writing-footer__name">Nathan Barnes</div>
+    <div class="writing-footer__role">
+      Design-to-Fabrication Systems Engineer ·
+      <a href="mailto:barnes.ngb@gmail.com" class="writing-footer__contact">barnes.ngb@gmail.com</a>
+    </div>
+  </div>
 
-What's the directive that should have existed for the worst install you've ever been on?
-
-— Nathan Barnes
-barnes.ngb@gmail.com
+  <div class="writing-footer__see-also">
+    <div class="writing-footer__see-also-label">see also</div>
+    <ul class="writing-footer__see-also-list">
+      <li class="writing-footer__see-also-item">
+        <a href="/work/directive-engine" class="writing-footer__see-also-link">Directive Engine</a>
+        <span class="writing-footer__see-also-tag">instrument 03</span>
+      </li>
+      <li class="writing-footer__see-also-item">
+        <a href="/demo" class="writing-footer__see-also-link">Live demo</a>
+        <span class="writing-footer__see-also-tag">browser</span>
+      </li>
+      <li class="writing-footer__see-also-item">
+        <a href="https://github.com/barnes-ngb/directive-engine" class="writing-footer__see-also-link">directive-engine</a>
+        <span class="writing-footer__see-also-tag">github</span>
+      </li>
+    </ul>
+  </div>
+</footer>
