@@ -161,6 +161,11 @@ One component, semantic variants. Lowercase content always.
 ```
 .status-chip                — bordered, color comes from variant
 .status-chip--deployed      — accent (patina) border + text
+.status-chip--live          — accent (patina) border + text. Use for the
+                              demo page and any other live-but-non-product
+                              surface. Same styling as --deployed; the word
+                              difference is the point — products are
+                              deployed, demos go live.
 .status-chip--in-review     — info border + text
 .status-chip--pending       — warning border + text
 .status-chip--research      — ink-tertiary border + text (quiet)
@@ -292,6 +297,80 @@ Closes every writing post (and any future post-template page like lab entries th
 - No share buttons, no subscribe forms, no comments, no social row, no headshot. The footer is restrained on purpose.
 - On lab pages (§2.8), the `.writing-footer` is not used — lab entries close more like log entries and need their own pattern when the time comes.
 
+### 2.10 Instrument readout
+
+A bordered card showing a labeled technical value, modeled on a real instrument-panel channel readout. Used on the homepage and anywhere else a single page-level "this is what the system measures / inputs / outputs" needs to be stated as a fact.
+
+**ALL CAPS labels are explicitly permitted on this pattern only**, as a carve-out from the sentence-case rule. The reason: ALL CAPS is the domain convention for instrument-channel labels (SIGNAL, INPUT, OUTPUT, GAIN, VERIFICATION). Honoring it reads as authentic; lowercasing it would read as wrong. The carve-out is scoped to this single class and does not generalize.
+
+```html
+<div class="instrument-readout-row">
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">SIGNAL</div>
+    <div class="instrument-readout__value">As-Built Scan</div>
+  </div>
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">OUTPUT</div>
+    <div class="instrument-readout__value">Directive Card</div>
+  </div>
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">VERIFICATION</div>
+    <div class="instrument-readout__value">PASS/FAIL</div>
+  </div>
+</div>
+```
+
+**Rules:**
+
+- `instrument-readout__label`: ALL CAPS, mono, tertiary text color, tracking-wider. Always one word or one short phrase that names a real channel or aspect of the system.
+- `instrument-readout__value`: mono, primary text color, larger than the label, weight 500. Title Case is fine; domain conventions like `PASS/FAIL`, `±1mm`, `N/A` are explicitly permitted.
+- Use 2–4 readouts per row. Five or more starts looking like a stats wall.
+- Reserved for actual instrument-channel content. Do NOT use this pattern as a generic "three feature cards" replacement — that's the misuse this carve-out invites. If the content isn't genuinely a labeled technical reading, use prose or `.catalog-row` instead.
+- The pattern is most at home on the homepage. It can appear on case studies if the case study has a real measured/verified output worth surfacing as a readout.
+
+### 2.11 CTA link
+
+The primary-action affordance for a page. Reserved for the single most important outgoing action — "launch the demo," "open the repo," "read the paper." Not used for navigation between site pages (those are plain links) and not used to emphasize secondary actions.
+
+```html
+<a href="https://directive-engine.vercel.app/" class="cta-link">
+  open live demo
+  <span class="cta-link__arrow">→</span>
+</a>
+```
+
+**Rules:**
+
+- One per page maximum. If a page has two primary actions, demote one of them to a plain link or to `.catalog-row__sublink`.
+- Lowercase content always (this is NOT the instrument-readout carve-out).
+- Mono type, sentence-case wording, with an arrow `→` for outbound or `↗` for new-tab. The arrow lives in its own span so it can be styled or animated independently.
+- Outlined patina border, no fill. Hover state fills with `accent-soft`. Never a solid green button.
+- Used for action affordances, NOT for status indicators. A CTA link says "do this thing." A status chip says "this thing is X."
+
+### 2.12 Site footer
+
+The single global footer that closes every page. Three jobs only: copyright, identity links, contact. Unlike `.writing-footer` (which is per-post), this is per-site.
+
+```html
+<footer class="site-footer">
+  <div class="site-footer__copyright">© 2026 Nathan Barnes</div>
+  <div class="site-footer__links">
+    <a href="https://github.com/barnes-ngb" class="site-footer__link">GitHub</a>
+    <a href="https://linkedin.com/in/..." class="site-footer__link">LinkedIn</a>
+    <a href="mailto:barnes.ngb@gmail.com" class="site-footer__link">barnes.ngb@gmail.com</a>
+  </div>
+</footer>
+```
+
+**Rules:**
+
+- Site footer is global — appears on every page via `BaseLayout.astro`, not per-page.
+- Three to five links max in the right cluster. Adding a sixth means cutting one.
+- Each link is rendered as a quiet outlined pill (small mono, hairline border, patina on hover). Distinct from `.status-chip` semantically but visually adjacent — both are outlined hairline pills with mono content.
+- Copyright year is dynamic in implementation (`{new Date().getFullYear()}`), not hardcoded.
+- No "made with" credits, no analytics blurbs, no newsletter signup. Restraint.
+- This footer does NOT appear on writing posts in place of `.writing-footer` (§2.9) — both appear: post footer (per-post) above, site footer (global) at the very bottom.
+
 ---
 
 ## 3 · Implementation plan
@@ -319,6 +398,15 @@ Convert one page at a time. Don't try to update all five at once.
    and close with .writing-footer (§2.9).
 
 Per page: read the existing content, wrap in the new patterns, verify visually, commit.
+
+### Phase 2.5 — Pattern bundle (new amendments)
+
+- Apply §2.10 .instrument-readout to src/pages/index.{md,astro} where the
+  three labeled cards currently live (SIGNAL / OUTPUT / VERIFICATION).
+- Apply §2.11 .cta-link to src/pages/demo.{md,astro} for the "open live
+  demo" affordance.
+- Apply §2.12 .site-footer globally via src/layouts/BaseLayout.astro.
+- Each is a separate Claude Code session with its own branch.
 
 ### Phase 3 — Add lab surface (3–4 hours)
 

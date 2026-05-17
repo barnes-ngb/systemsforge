@@ -101,6 +101,7 @@
 }
 
 .status-chip--deployed  { color: var(--accent); }
+.status-chip--live      { color: var(--accent); } /* See Visual System.md §2.2 */
 .status-chip--in-review { color: var(--status-info); }
 .status-chip--prototype { color: var(--status-info); }
 .status-chip--pending   { color: var(--status-warning); }
@@ -525,4 +526,123 @@
   color: var(--ink-tertiary);
   letter-spacing: var(--tracking-wide);
   white-space: nowrap;
+}
+
+/* ============================================================
+   Instrument readout — homepage / case study technical readouts
+   See Visual System.md §2.10.
+   ALL CAPS labels permitted (explicit carve-out for this pattern only).
+   ============================================================ */
+
+.instrument-readout-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.instrument-readout {
+  border: var(--border-thin) solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--surface);
+}
+
+.instrument-readout__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.instrument-readout__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: var(--lh-snug);
+}
+
+/* ============================================================
+   CTA link — single primary action per page
+   See Visual System.md §2.11.
+   ============================================================ */
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  color: var(--accent);
+  border: var(--border-thin) solid var(--accent);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color 120ms ease;
+}
+
+.cta-link:hover {
+  background: var(--accent-soft);
+}
+
+.cta-link__arrow {
+  font-family: var(--font-mono);
+  display: inline-block;
+}
+
+/* ============================================================
+   Site footer — global, applied via BaseLayout
+   See Visual System.md §2.12.
+   ============================================================ */
+
+.site-footer {
+  padding: var(--space-5) 0;
+  margin-top: var(--space-7);
+  border-top: var(--border-thin) solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.site-footer__copyright {
+  font-size: var(--text-sm);
+  color: var(--ink-secondary);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.site-footer__link {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-secondary);
+  border: var(--border-thin) solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  text-decoration: none;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+
+.site-footer__link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* On narrow screens, stack the footer */
+@media (max-width: 480px) {
+  .site-footer {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
