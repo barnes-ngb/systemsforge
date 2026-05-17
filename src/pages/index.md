@@ -4,24 +4,28 @@ title: "Home"
 description: "Building instruments that turn as-built reality into installer-ready directives with calibration, visualization, and verification."
 ---
 
-# Nathan Barnes
+<div class="title-block">
+  <div class="title-block__id">home · rev 1</div>
+</div>
+
+# Calibrated instruments for physical work
 
 I'm a design-to-fabrication systems engineer building geometry pipelines, CNC automation, customer-facing configurators, and field verification tools for complex architectural manufacturing.
 
-I call these tools **calibrated instruments for physical work** — each one turns messy field reality into unambiguous, executable decisions.
+I call these tools calibrated instruments for physical work — each one turns messy field reality into unambiguous, executable decisions.
 
-<div class="metric-grid">
-  <div class="metric-card">
-    <span class="metric-card__label">Signal</span>
-    <span class="metric-card__value">As-Built Scan</span>
+<div class="instrument-readout-row">
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">SIGNAL</div>
+    <div class="instrument-readout__value">As-Built Scan</div>
   </div>
-  <div class="metric-card">
-    <span class="metric-card__label">Output</span>
-    <span class="metric-card__value">Directive Card</span>
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">OUTPUT</div>
+    <div class="instrument-readout__value">Directive Card</div>
   </div>
-  <div class="metric-card">
-    <span class="metric-card__label">Verification</span>
-    <span class="metric-card__value">PASS/FAIL</span>
+  <div class="instrument-readout">
+    <div class="instrument-readout__label">VERIFICATION</div>
+    <div class="instrument-readout__value">PASS/FAIL</div>
   </div>
 </div>
 
@@ -36,7 +40,7 @@ The hardest part of installing complex assemblies isn't detecting that something
     <span class="chip chip--ok">CALIBRATED</span>
   </div>
   <h3>Directive Engine</h3>
-  <p>Convert nominal ↔ as-built deltas into <strong>installer-ready directive cards</strong> (move / rotate / index), with 3D visualization and verification loops.</p>
+  <p>Convert nominal ↔ as-built deltas into installer-ready directive cards (move / rotate / index), with 3D visualization and verification loops.</p>
 </a>
 
 <div class="artifact-bar">
