@@ -10,4 +10,5 @@ Long-form essays on the layer between design and field — the instrumentation w
 
 ## Posts
 
+- [The reverse problem is two problems](/writing/the-reverse-problem-is-two-problems/) — June 2026
 - [Pixels to atoms: the missing layer in fabrication](/writing/pixels-to-atoms/) — May 2026
