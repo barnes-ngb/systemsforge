@@ -1,0 +1,164 @@
+---
+layout: ../../layouts/BaseLayout.astro
+title: "passthrough"
+description: "A round-trip instrument for the reverse problem in computational geometry. Carry identity and topology across the mesh boundary so a reconstruction is constrained, checkable, and measurable. The experiment found the reverse problem is two problems."
+image: "/images/writing/two_boundaries.png"
+---
+
+<div class="title-block">
+  <div class="title-block__id">work / instrument 04 · rev 1</div>
+  <span class="status-chip status-chip--research">validated</span>
+</div>
+
+<div class="page-header">
+  <h1 class="page-header__title">passthrough</h1>
+  <p class="page-header__subtitle">A round-trip instrument for the reverse problem in computational geometry. Carry identity and topology across the mesh boundary so a reconstruction is constrained, its validity checkable, and its deviation measurable. The experiment found the reverse problem is two problems.</p>
+</div>
+
+<div class="metadata-strip">
+  <span><span class="metadata-strip__label">built </span>2026</span>
+  <span><span class="metadata-strip__label">stack </span>python · c# · rhino 8</span>
+  <span><span class="metadata-strip__label">drift </span>max 2.85e-3</span>
+  <span><span class="metadata-strip__label">stage </span>validated</span>
+</div>
+
+<p><a href="https://github.com/barnes-ngb/passthrough" target="_blank" rel="noopener">Repository</a> · <a href="/writing/the-reverse-problem-is-two-problems/">Writing: the reverse problem is two problems</a> · <a href="mailto:barnes.ngb@gmail.com">Contact</a></p>
+
+<figure class="figure">
+  <img src="/images/writing/two_boundaries.png" alt="The reverse problem is two problems. Boundary 1, parameterization recovery, governs positional drift and is the one passthrough closes. Boundary 2, representation richness, governs curvature fidelity and stays open." />
+  <figcaption class="figure__caption">fig 01 · the reverse problem, split into two boundaries</figcaption>
+</figure>
+
+<div class="section-header">
+  <div class="section-header__index">01 · problem</div>
+  <h2>Problem</h2>
+</div>
+
+Forward is solved. Take a CAD surface, an analytic description with control points and knots, run the kernel, and tessellate it into a mesh. The reverse is not. Hand that mesh to a solver that pushes on it, and turning the morphed mesh back into an analytic surface that behaves like the part is the open direction. It tends to get treated as a single difficulty: reconstruction is hard, get better at reconstruction.
+
+The handoff a downstream CAD team actually wants is narrow. A surface changed only where the simulation changed it, unchanged everywhere else. That needs a reconstruction that is determined rather than guessed, checkable for validity, and measurable against where it should have landed.
+
+<div class="section-header">
+  <div class="section-header__index">02 · the carry</div>
+  <h2>What crosses the boundary</h2>
+</div>
+
+passthrough carries three layers on the same points. Position, which the solver may change. Identity, a stable label per vertex, which it may not. Topology, the neighbor and winding relationships, which it may not. Vertex 47 is vertex 47 wherever it moves, so correspondence is never inferred.
+
+One contract holds it together: a solver may move positions and is forbidden to renumber or rewire. That single rule is what makes reconstruction, validity, and measurement possible at all.
+
+<figure class="figure">
+  <img src="/images/writing/collision.png" alt="Carried topology defines which closeness is legal. Two neighbors close together is expected; two non-neighbors landing coincident is flagged as a self-intersection." />
+  <figcaption class="figure__caption">fig 02 · carried topology decides which closeness is legal</figcaption>
+</figure>
+
+The validity gate reads the returned geometry against the carried identity and produces three distinct signals.
+
+<div class="artifact-card">
+  <div class="artifact-card__header">
+    <span class="artifact-card__id">validity gate · signals</span>
+  </div>
+  <div><span class="artifact-card__field-label">identity </span>labels stopped matching, a remesh</div>
+  <div><span class="artifact-card__field-label">collision </span>labels match but non-neighbors coincide, a self-intersection</div>
+  <div><span class="artifact-card__field-label">fold </span>a face orientation inverted</div>
+</div>
+
+Collision detection falls out of the carried adjacency directly. Neighbors near each other is expected, non-neighbors coincident is a defect. The topology is the reference that tells a feature from a defect.
+
+<div class="section-header">
+  <div class="section-header__index">03 · calibration</div>
+  <h2>The degraded-information ladder</h2>
+</div>
+
+The result comes from one experiment. Hold the same surface and the same loop, and remove what you carry across the boundary, one rung at a time. The point was to measure where reconstruction stays tractable and where it falls apart.
+
+<div class="artifact-card">
+  <div class="artifact-card__header">
+    <span class="artifact-card__id">phase 6 · drift vs carry</span>
+  </div>
+  <div><span class="artifact-card__field-label">rung 1 </span>uv + identity + topology, drift max 1.9e-3, reconstructed</div>
+  <div><span class="artifact-card__field-label">rung 2 </span>identity + topology, uv estimated, drift max 1.9e-2, ~10x worse</div>
+  <div><span class="artifact-card__field-label">rung 3 </span>unordered point cloud, drift 2.58, ill-posed</div>
+  <div><span class="artifact-card__field-label">rung 4 </span>remesh, connectivity changed, blocked by the gate</div>
+</div>
+
+Positional drift climbs three orders of magnitude as the carry is stripped away. That climb is what carrying identity is worth. The ground is synthetic on purpose: a single surface with known ground truth, built to make the boundary measurable rather than asserted.
+
+<div class="section-header">
+  <div class="section-header__index">04 · action</div>
+  <h2>Reconstruct, then check</h2>
+</div>
+
+A tagged mesh goes out, an external solver morphs it, and it comes back still carrying its identity. Because correspondence is carried rather than inferred, reconstruction is a determined fit. A clean pass writes the reconstructed analytic surface (`result.json`, schema `passthrough.surface.v1`), the per-vertex deviation field (`field.json`), and a status (`status.json`). The geometry math stays in tested Python. A C# Grasshopper plugin for Rhino 8 is a construction-and-display client that reads the same file contract and rebuilds the surface natively on the canvas.
+
+<div class="section-header">
+  <div class="section-header__index">05 · verification</div>
+  <h2>The two-boundary result</h2>
+</div>
+
+Positional drift behaved exactly as the single-problem story predicted, the clean staircase above. One number refused to follow it. Curvature deviation, how faithfully the reconstruction holds the surface's curvature, was already saturated at the top of the ladder with full information carried, about 2.2 at the leading edge, and better parameterization did nothing for it. A coarse basis cannot hold a sharp curvature no matter how perfectly the points are placed on it. That number is reported, not tuned away.
+
+The full round trip was validated on Windows in Rhino 8 through the Grasshopper plugin, and the native rebuild matched the Python side exactly.
+
+<div class="artifact-card">
+  <div class="artifact-card__header">
+    <span class="artifact-card__id">round-trip · rhino 8</span>
+    <span class="status-chip status-chip--research">matches python</span>
+  </div>
+  <div><span class="artifact-card__field-label">drift </span>max 2.85e-3</div>
+  <div><span class="artifact-card__field-label">curvature </span>max 2.152445</div>
+  <div><span class="artifact-card__field-label">tests </span>123 on synthetic ground truth</div>
+</div>
+
+So the reverse problem is two problems wearing one coat.
+
+<div class="artifact-card">
+  <div class="artifact-card__header">
+    <span class="artifact-card__id">boundary 1 · parameterization recovery</span>
+    <span class="status-chip status-chip--research">closed</span>
+  </div>
+  <div>Can you recover where the points belong? This governs positional drift, and carrying identity makes it well-posed. It is the boundary passthrough closes.</div>
+</div>
+
+<div class="artifact-card">
+  <div class="artifact-card__header">
+    <span class="artifact-card__id">boundary 2 · representation richness</span>
+    <span class="status-chip status-chip--pending">open</span>
+  </div>
+  <div>Can your representation hold the properties the solver feels, like curvature? This is a function of the basis and the degrees of freedom, not of anything you carry. A different knob, and the instrument does not touch it.</div>
+</div>
+
+The honest version of the work is not "reconstruction works." It is: here are the two boundaries, here is the one this closes, and here is the one that stays open. The fuller argument, and why the same move shows up far outside geometry, is in the companion essay, <a href="/writing/the-reverse-problem-is-two-problems/">the reverse problem is two problems</a>.
+
+<div class="section-header">
+  <div class="section-header__index">06 · artifacts</div>
+  <h2>Artifacts</h2>
+</div>
+
+<a href="https://github.com/barnes-ngb/passthrough" target="_blank" rel="noopener">Repository</a> · <a href="/writing/the-reverse-problem-is-two-problems/">Companion essay</a> · <a href="mailto:barnes.ngb@gmail.com">Contact</a>
+
+### Run it
+
+Requires Python 3.13 and uv. Rhino is optional, only for the Grasshopper side.
+
+```bash
+git clone https://github.com/barnes-ngb/passthrough
+cd passthrough && uv sync
+uv run python -m pytest          # 123 passing
+
+# emit the synthetic wing, then run one round trip
+uv run python scripts/run_roundtrip.py emit exchange/payload.json --kind good
+uv run python scripts/run_roundtrip.py run exchange/payload.json exchange/return --morph clean
+```
+
+Swap `--morph clean` for `collision` or `fold` to watch the validity gate catch an unphysical return instead of a clean one. The degraded-information ladder and its drift-versus-rung plot come from `uv run python scripts/run_phase6.py`.
+
+<aside class="limits-callout">
+  <div class="limits-callout__label">limits</div>
+  <ul>
+    <li>Single-surface round-trip on synthetic ground truth. Not a general solver for the reverse problem, and it does not claim to be.</li>
+    <li>Boundary 2 is named and measured here, not addressed. Adaptive knot insertion driven by carried curvature, the NURBS analog of adaptive mesh refinement, is the direction, not a result.</li>
+    <li>The per-region deviation report a CAD team needs, "changed only where the simulation changed it," is not built. The data is in the field file; the partition and the check are not.</li>
+    <li>A learned, differentiable reconstruction would give gradient transfer from mesh point back to parameter natively. It is documented as the structured path and left unbuilt.</li>
+  </ul>
+</aside>
