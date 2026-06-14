@@ -1,0 +1,99 @@
+---
+import { instruments, systems, type Instrument } from '../data/instruments';
+
+interface Props { highlight: string; }
+const { highlight } = Astro.props as Props;
+
+const shares = (a: Instrument, b: Instrument) =>
+  a.left === b.left || a.left === b.right || a.right === b.left || a.right === b.right;
+
+// Connected component containing the highlighted instrument (its neighborhood).
+const start = instruments.find((i) => i.slug === highlight);
+const comp: Instrument[] = [];
+if (start) {
+  const seen = new Set([start.slug]);
+  const queue: Instrument[] = [start];
+  while (queue.length) {
+    const cur = queue.shift()!;
+    comp.push(cur);
+    for (const other of instruments) {
+      if (!seen.has(other.slug) && shares(cur, other)) {
+        seen.add(other.slug);
+        queue.push(other);
+      }
+    }
+  }
+}
+
+// Systems present in this neighborhood, ordered small -> large.
+const usedIds = [...new Set(comp.flatMap((i) => [i.left, i.right]))];
+const used = usedIds.map((id) => ({ id, ...systems[id] })).sort((a, b) => a.scale - b.scale);
+
+const W = 760, H = 430, yB = 300, xL = 150, xR = 610, arcH = 92;
+const minS = Math.min(...used.map((s) => s.scale));
+const maxS = Math.max(...used.map((s) => s.scale));
+const xOf = (scale: number) =>
+  used.length === 1 ? (xL + xR) / 2 : xL + ((scale - minS) / (maxS - minS)) * (xR - xL);
+const sysX: Record<string, number> = Object.fromEntries(used.map((s) => [s.id, xOf(s.scale)]));
+const touched = new Set(start ? [start.left, start.right] : []);
+const solo = comp.length === 1;
+const caption = solo
+  ? 'a register of its own · it shares no system with the geometry chain'
+  : 'this instrument lit · its neighbors share a system, ordered small to large';
+---
+
+<figure class="figure instrument-network">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img"
+       aria-label={`Where ${start?.name ?? highlight} sits in the network of instruments`}
+       style="width:100%;height:auto;font-family:var(--font-mono);">
+    <rect x="1" y="1" width={W - 2} height={H - 2} rx="14"
+          fill="var(--surface)" stroke="var(--border)" />
+    <text x="40" y="46" font-size="11" letter-spacing="2.5" fill="var(--ink-tertiary)">
+      WHERE {(start?.name ?? highlight).toUpperCase()} SITS
+    </text>
+
+    {/* shared-system chain */}
+    <line x1={xL} y1={yB} x2={xR} y2={yB} stroke="var(--ink-tertiary)" stroke-width="0.75" />
+
+    {/* instrument arcs */}
+    {comp.map((inst) => {
+      const a = sysX[inst.left], b = sysX[inst.right];
+      const mid = (a + b) / 2;
+      const lit = inst.slug === highlight;
+      return (
+        <g>
+          <path d={`M${a} ${yB} Q${mid} ${yB - 2 * arcH} ${b} ${yB}`}
+                fill="none"
+                stroke={lit ? 'var(--accent)' : 'var(--ink-tertiary)'}
+                stroke-width={lit ? 2 : 1} />
+          <text x={mid} y={yB - arcH - 14} text-anchor="middle"
+                font-size={lit ? 13.5 : 11}
+                fill={lit ? 'var(--accent)' : 'var(--ink-tertiary)'}>{inst.name}</text>
+        </g>
+      );
+    })}
+
+    {/* system nodes */}
+    {used.map((s) => {
+      const hit = touched.has(s.id);
+      return (
+        <g>
+          <circle cx={sysX[s.id]} cy={yB} r={hit ? 4.5 : 4}
+                  fill={hit ? 'var(--accent)' : 'none'}
+                  stroke={hit ? 'none' : 'var(--ink-tertiary)'} />
+          <text x={sysX[s.id]} y={yB + 20} text-anchor="middle" font-size="11"
+                fill={hit ? 'var(--ink)' : 'var(--ink-tertiary)'}>{s.label}</text>
+        </g>
+      );
+    })}
+
+    {/* small -> large axis */}
+    <line x1={xL + 30} y1="356" x2={xR - 28} y2="356" stroke="var(--ink-tertiary)" stroke-width="0.75" />
+    <path d={`M${xR - 28} 356 l-7 -3.5 l0 7 z`} fill="var(--ink-tertiary)" />
+    <text x={xL + 30} y="374" font-size="9" letter-spacing="1.5" fill="var(--ink-tertiary)" text-anchor="start">SMALL</text>
+    <text x={xR - 20} y="374" font-size="9" letter-spacing="1.5" fill="var(--ink-tertiary)" text-anchor="end">LARGE</text>
+
+    <text x={W / 2} y="408" font-size="10.5" letter-spacing="0.4" fill="var(--ink-tertiary)" text-anchor="middle">{caption}</text>
+  </svg>
+  <figcaption class="figure__caption">fig · where this instrument sits</figcaption>
+</figure>
