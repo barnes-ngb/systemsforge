@@ -1,18 +1,18 @@
 ---
 layout: ../layouts/BaseLayout.astro
 title: "Home"
-description: "Building instruments that turn as-built reality into installer-ready directives with calibration, visualization, and verification."
+description: "Systems engineer building software for physical execution: geometry pipelines, fabrication automation, configurators, and field verification tools."
 ---
 
 <div class="title-block">
   <div class="title-block__id">home · rev 1</div>
 </div>
 
-# Calibrated instruments for physical work
+# I build software for physical execution
 
-I'm a design-to-fabrication systems engineer building geometry pipelines, CNC automation, customer-facing configurators, and field verification tools for complex architectural manufacturing.
+Geometry pipelines, fabrication automation, configurators, and field verification tools. I turn design intent and as-built reality into decisions crews and machines can act on.
 
-I call these tools calibrated instruments for physical work — each one turns messy field reality into unambiguous, executable decisions.
+I call these calibrated instruments for physical work. Each turns messy field reality into an executable, verifiable decision.
 
 <div class="instrument-readout-row">
   <div class="instrument-readout">
