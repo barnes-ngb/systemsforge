@@ -11,7 +11,7 @@ const image = Astro.props.image ?? frontmatter?.image;
 const pageTitle = title
   ? (title.includes("Nathan Barnes") ? title : `${title} — Nathan Barnes`)
   : "Nathan Barnes";
-const pageDescription = description ?? "Building instruments that turn as-built reality into installer-ready directives.";
+const pageDescription = description ?? "Systems engineer building software for physical execution: geometry pipelines, fabrication automation, configurators, and field verification tools.";
 const ogImage = image ?? "/images/og-default.png";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -59,7 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="container nav">
         <div class="left">
           <a href="/">Nathan Barnes</a>
-          <span class="muted tagline">Design-to-Fabrication Systems Engineer</span>
+          <span class="muted tagline">Systems Engineer · Software for Physical Execution</span>
         </div>
         <nav class="right">
           <a href="/work/">Work</a>
