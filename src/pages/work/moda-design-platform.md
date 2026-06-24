@@ -130,6 +130,8 @@ The instrument reduces ambiguity, speeds decisions, and establishes a **product 
   </div>
 </div>
 
+The pattern here is not specific to metal finishes. Any time a customer's intent has to become a manufacturable, priced spec without a person translating it by hand, the same instrument applies: a constrained configuration that yields a visual to decide against and an output concrete enough to quote and build. That shape recurs in build-to-spec aerospace and defense components and in custom energy hardware like enclosures and pack layouts. The gap between what a customer wants and what a shop can make is where rework and margin live, and a configurator that closes it is a commercial instrument, not only a design aid.
+
 ---
 
 ## Artifacts
