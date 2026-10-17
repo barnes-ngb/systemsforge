@@ -14,7 +14,7 @@ description: "Instruments I've built. Stage and year, plainly listed."
 </div>
 
 <div class="summary-strip">
-  <span><span class="summary-strip__label">instruments </span>4</span>
+  <span><span class="summary-strip__label">instruments </span>5</span>
   <span><span class="summary-strip__label">deployed </span>3</span>
   <span><span class="summary-strip__label">earliest </span>2025</span>
   <span><span class="summary-strip__label">latest </span>2026</span>
@@ -71,6 +71,21 @@ description: "Instruments I've built. Stage and year, plainly listed."
     <span class="status-chip status-chip--research">validated</span>
     <span class="catalog-row__year">2026 · python · c#</span>
     <a href="https://github.com/barnes-ngb/passthrough" class="catalog-row__sublink" target="_blank" rel="noopener">repository →</a>
+  </div>
+</div>
+
+<div class="catalog-group-label">in development</div>
+
+<div class="catalog-row">
+  <span class="catalog-row__index">05</span>
+  <div class="catalog-row__body">
+    <div class="catalog-row__title"><a href="/work/compass/">compass</a></div>
+    <div class="catalog-row__subtitle">A pull-default, glance-paced AI coach for smart glasses. Built mock-first on a laptop; the page keeps the list of instruments built alongside it.</div>
+  </div>
+  <div class="catalog-row__meta">
+    <span class="status-chip status-chip--pending">in development</span>
+    <span class="catalog-row__year">2026 · python</span>
+    <a href="https://github.com/barnes-ngb/compass" class="catalog-row__sublink" target="_blank" rel="noopener">repository →</a>
   </div>
 </div>
 

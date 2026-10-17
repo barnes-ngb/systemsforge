@@ -1,0 +1,81 @@
+{
+  "title": "The instrument is the work",
+  "thesis": "Building is cheap now; the instrument that can say no is the work.",
+  "claim": "An instrument takes a candidate and a reference the candidate's author did not produce, compares them, reads a residual against a threshold, and returns a verdict that can be no.",
+  "instrument": {
+    "inputs": [
+      {
+        "id": "candidate",
+        "label": "candidate",
+        "note": "What was built. Cheap now; there are usually several."
+      },
+      {
+        "id": "reference",
+        "label": "reference",
+        "note": "Independent of author and model: synthetic ground truth, held-out data, a person doing the task, a coupon on the bench, a phrase set the model must transcribe."
+      }
+    ],
+    "comparator": {
+      "id": "compare",
+      "label": "compare",
+      "note": "The operation that puts candidate against reference. Domain-specific; this is where the engineering is."
+    },
+    "residual": {
+      "id": "residual",
+      "label": "residual",
+      "note": "A number, not an impression.",
+      "example_value": "0.62",
+      "unit": "mm"
+    },
+    "threshold": {
+      "id": "threshold",
+      "label": "threshold",
+      "note": "Set before the run. Moving it after is the skip wearing a lab coat.",
+      "example_value": "0.50",
+      "unit": "mm"
+    },
+    "verdict": {
+      "id": "verdict",
+      "label": "verdict",
+      "states": [
+        "pass",
+        "no",
+        "ill-posed",
+        "blocked"
+      ],
+      "example": "no"
+    }
+  },
+  "outside": {
+    "skip": {
+      "label": "looks right",
+      "note": "Candidate to verdict with no reference. The dashed edge."
+    },
+    "return": {
+      "label": "returns, reusable",
+      "note": "The instrument outlives the candidate. Running it again costs nothing."
+    }
+  },
+  "authorship": [
+    {
+      "category": 1,
+      "claim": "I wrote this",
+      "position": "instrumented, understood"
+    },
+    {
+      "category": 2,
+      "claim": "AI-assisted; I chose the method and validated",
+      "position": "instrumented, method mine"
+    },
+    {
+      "category": 3,
+      "claim": "AI-assisted; I'd want to study it more",
+      "position": "instrumented, understanding pending"
+    }
+  ],
+  "knowledge": {
+    "id": "knowledge",
+    "label": "knowledge",
+    "note": "Where references come from and where instruments go. Every instrument built before."
+  }
+}
