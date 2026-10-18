@@ -10,5 +10,6 @@ Long-form essays on the layer between design and field — the instrumentation w
 
 ## Posts
 
+- [The instrument is the work: building got cheap, saying no didn't](/writing/the-instrument-is-the-work/) — October 2026
 - [The reverse problem is two problems](/writing/the-reverse-problem-is-two-problems/) — June 2026
 - [Pixels to atoms: the missing layer in fabrication](/writing/pixels-to-atoms/) — May 2026
