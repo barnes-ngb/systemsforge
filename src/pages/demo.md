@@ -20,7 +20,32 @@ description: "Directive Engine demo — a 5-beat guided walkthrough bridging det
   </a>
 </div>
 
-<!-- TODO: embed 60-90s demo video here once Track B capture lands. -->
+## Take the panel apart
+
+The same engine, live, on one panel. Set the deviation with the three sliders; the directive, residual and verdict print from what <code>generateDirectives()</code> returns. Left alone it tours the five beats below; any click hands you control.
+
+<figure class="figure" style="padding: 0; overflow: hidden">
+  <iframe src="https://directive-engine.vercel.app/panel.html" title="Directive Engine panel teardown: one facade panel driven live by the engine" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #ecedef"></iframe>
+  <figcaption class="figure__caption" style="padding: var(--space-2) var(--space-4) var(--space-3)">fig 01 · panel p-05 of toy_facade_v1, live · <a href="https://directive-engine.vercel.app/panel.html" target="_blank" rel="noopener">open full size →</a></figcaption>
+</figure>
+
+<div class="reading-grid">
+  <div class="reading-card">
+    <div class="reading__label">deviation · before</div>
+    <div class="reading__row"><span class="reading__value reading__value--small reading__value--fail">6.6</span><span class="reading__unit">mm</span></div>
+    <div class="reading__note">p-05 · +6.5 / −1.0 mm · 3° about p3</div>
+  </div>
+  <div class="reading-card">
+    <div class="reading__label">residual · expected after</div>
+    <div class="reading__row"><span class="reading__value reading__value--small reading__value--pass">0.0</span><span class="reading__unit">mm</span></div>
+    <div class="reading__note">tol ±2.0 · limit 10 → blocked</div>
+  </div>
+  <div class="reading-card">
+    <div class="reading__label">verdict</div>
+    <div class="verdict-row"><span class="verdict verdict--lit">pass</span><span class="verdict">no</span><span class="verdict">blocked</span></div>
+    <div class="reading__note">from expected_directives.json</div>
+  </div>
+</div>
 
 ---
 
@@ -59,7 +84,7 @@ description: "Directive Engine demo — a 5-beat guided walkthrough bridging det
     <span class="step__number">5</span>
     <div class="step__content">
       <div class="step__title">Verify</div>
-      <div class="step__description">Camera returns to the wide shot. Before/after metric closes the loop — residual drops from ~8mm to &lt;1mm; <span class="chip chip--ok">PASS</span> chip lights.</div>
+      <div class="step__description">Camera returns to the wide shot. Before/after metric closes the loop: 6.6 mm before, 0.0 mm expected after, against ±2.0; <span class="chip chip--ok">PASS</span> chip lights.</div>
     </div>
   </div>
 </div>
@@ -70,6 +95,7 @@ description: "Directive Engine demo — a 5-beat guided walkthrough bridging det
 
 <div class="artifact-bar">
   <a href="https://directive-engine.vercel.app/" class="artifact-link" target="_blank" rel="noopener">Live Demo</a>
+  <a href="https://directive-engine.vercel.app/panel.html" class="artifact-link" target="_blank" rel="noopener">Panel teardown</a>
   <a href="https://github.com/barnes-ngb/directive-engine" class="artifact-link" target="_blank" rel="noopener">Repository</a>
   <a href="/work/directive-engine/" class="artifact-link">Full Case Study →</a>
 </div>
