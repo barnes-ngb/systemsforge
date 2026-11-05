@@ -18,6 +18,7 @@ description: "Pixels to atoms — a directive engine that bridges detection and 
   <span><span class="metadata-strip__label">built </span>2025</span>
   <span><span class="metadata-strip__label">stack </span>ts · three.js · vite</span>
   <span><span class="metadata-strip__label">tol </span>±2.0mm</span>
+  <span><span class="metadata-strip__label">tests </span>188</span>
   <span><span class="metadata-strip__label">stage </span>v0.2</span>
 </div>
 
@@ -95,17 +96,49 @@ The mapping from engine math to physical features happens in `src/presentation/f
   <h2>Verification loop</h2>
 </div>
 
-The live demo walks through the loop in five beats — detection, constraint, directive, apply, verify — on the synthetic `toy_facade_v1` fixture. Try it on desktop or mobile: <a href="https://directive-engine.vercel.app/" target="_blank" rel="noopener">open live demo</a> · <a href="/demo/">demo walkthrough</a>.
+The live demo walks through the loop in five beats — detection, constraint, directive, apply, verify — on the synthetic `toy_facade_v1` fixture. The worst panel before and after, read against the tolerance the constraints declare:
 
-<div class="artifact-card">
-  <div class="artifact-card__header">
-    <span class="artifact-card__id">verification · toy_facade_v1</span>
-    <span class="status-chip status-chip--deployed">pass</span>
+<figure class="figure">
+  <div class="reading-row">
+    <div class="reading">
+      <div class="reading__label">before · worst panel</div>
+      <div class="reading__row"><span class="reading__value reading__value--fail">6.6</span><span class="reading__unit">mm</span></div>
+    </div>
+    <div class="reading">
+      <div class="reading__label">after · expected residual</div>
+      <div class="reading__row"><span class="reading__value reading__value--pass">0.0</span><span class="reading__unit">mm</span></div>
+    </div>
+    <div class="reading reading--end">
+      <div class="reading__label">verdict</div>
+      <div class="verdict-row"><span class="verdict verdict--lit">pass</span><span class="verdict">no</span><span class="verdict">blocked</span></div>
+    </div>
   </div>
-  <div><span class="artifact-card__field-label">before </span>~8mm worst-panel deviation</div>
-  <div><span class="artifact-card__field-label">after  </span>&lt;1mm worst-panel deviation</div>
-  <div><span class="artifact-card__field-label">tol    </span>±2.0mm</div>
-</div>
+  <svg class="scale" viewBox="0 0 680 56" role="img" aria-label="Deviation scale from 0 to 12 mm with the tolerance at 2.0 and the limit at 10; panel P-05 reads 6.6 mm before the directive and 0.0 mm expected after" xmlns="http://www.w3.org/2000/svg">
+    <line x1="20.0" y1="30" x2="660.0" y2="30" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="20.0" y1="30" x2="20.0" y2="22" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="73.3" y1="30" x2="73.3" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="126.7" y1="30" x2="126.7" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="180.0" y1="30" x2="180.0" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="233.3" y1="30" x2="233.3" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="286.7" y1="30" x2="286.7" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="340.0" y1="30" x2="340.0" y2="22" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="393.3" y1="30" x2="393.3" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="446.7" y1="30" x2="446.7" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="500.0" y1="30" x2="500.0" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="553.3" y1="30" x2="553.3" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="606.7" y1="30" x2="606.7" y2="26" stroke="currentColor" stroke-width="0.8"/>
+    <line x1="660.0" y1="30" x2="660.0" y2="22" stroke="currentColor" stroke-width="0.8"/>
+    <text x="20.0" y="46" font-size="10" text-anchor="middle" fill="var(--ink-tertiary)">0</text>
+    <text x="340.0" y="46" font-size="10" text-anchor="middle" fill="var(--ink-tertiary)">6</text>
+    <text x="660.0" y="46" font-size="10" text-anchor="middle" fill="var(--ink-tertiary)">12 mm</text>
+    <line x1="126.7" y1="8" x2="126.7" y2="38" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><text x="131.7" y="12" font-size="10" fill="var(--ink-secondary)">tol ±2.0</text>
+    <line x1="553.3" y1="14" x2="553.3" y2="38" stroke="var(--status-danger)" stroke-width="1" stroke-dasharray="2 2"/><text x="548.3" y="12" font-size="10" text-anchor="end" fill="var(--status-danger)">limit 10</text>
+    <line x1="20.0" y1="30" x2="372.0" y2="30" stroke="var(--status-danger)" stroke-width="2.5" opacity="0.35"/>
+    <circle cx="372.0" cy="30" r="4.5" fill="none" stroke="var(--status-danger)" stroke-width="1.4"/><text x="372.0" y="20" font-size="10" text-anchor="middle" fill="var(--status-danger)">6.6 before</text>
+    <circle cx="20.0" cy="30" r="5" fill="var(--accent)"/><text x="30.0" y="20" font-size="10" fill="var(--accent)">0.0 after</text>
+  </svg>
+  <figcaption class="figure__caption">fig 02 · panel p-05 of toy_facade_v1: deviation before and expected residual after, read against the declared tolerance · from expected_directives.json</figcaption>
+</figure>
 
 1. Detection — as-built scene loads. Panels glow yellow or red where deviation exceeds tolerance.
 2. Constraint — camera dollies to the worst panel. Allowed DOF surface as named features.
@@ -113,12 +146,14 @@ The live demo walks through the loop in five beats — detection, constraint, di
 4. Apply (simulated) — panel animates to corrected pose. Status flips `pending → ok`.
 5. Verify — camera returns to the wide shot. Before/after metric closes the loop.
 
+The same loop runs live, with the engine behind every number, on the <a href="https://directive-engine.vercel.app/panel.html" target="_blank" rel="noopener">panel teardown</a>: set the deviation yourself, take the panel apart into J1, S2 and P3, and read what the engine returns. Past 10 mm it returns `blocked` and the panel does not move.
+
 <div class="section-header">
   <div class="section-header__index">06 · artifacts</div>
   <h2>Artifacts</h2>
 </div>
 
-<a href="https://directive-engine.vercel.app/" target="_blank" rel="noopener">Live demo</a> · <a href="https://github.com/barnes-ngb/directive-engine" target="_blank" rel="noopener">Repository</a> · <a href="/demo/">Demo walkthrough</a>
+<a href="https://directive-engine.vercel.app/" target="_blank" rel="noopener">Live demo</a> · <a href="https://directive-engine.vercel.app/panel.html" target="_blank" rel="noopener">Panel teardown</a> · <a href="https://github.com/barnes-ngb/directive-engine" target="_blank" rel="noopener">Repository</a> · <a href="/demo/">Demo walkthrough</a>
 
 ### Run it on your own scan
 

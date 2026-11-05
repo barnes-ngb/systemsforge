@@ -566,6 +566,133 @@
 }
 
 /* ============================================================
+   Readings — a value with a unit, a scale against a threshold,
+   a verdict row. See Visual System.md §2.13.
+   ============================================================ */
+
+.reading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.reading__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+}
+
+.reading__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.reading__value {
+  font-family: var(--font-mono);
+  font-size: 2.75rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.reading__value--small { font-size: 2rem; letter-spacing: -0.02em; }
+.reading__value--pass  { color: var(--accent); }
+.reading__value--fail  { color: var(--status-danger); }
+.reading__value--hold  { color: var(--status-warning); }
+
+.reading__unit {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-secondary);
+}
+
+.reading__note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+}
+
+.reading__note a { color: var(--accent); text-decoration: none; }
+
+/* several readings side by side, in a figure or on their own */
+.reading-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: flex-end;
+}
+
+.reading-row > .reading--end { margin-left: auto; }
+
+/* a grid of reading cards, the home page's three */
+.reading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.reading-card {
+  border: var(--border-thin) solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/* the scale: an inline svg drawn with currentColor and tokens; see the figure skill */
+.scale {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+/* the verdict row: every state the instrument can return, one lit */
+.verdict-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.verdict {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: lowercase;
+  padding: 3px var(--space-2);
+  border: var(--border-thin) solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink-tertiary);
+}
+
+.verdict--lit {
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+
+.verdict--lit.verdict--fail {
+  border-color: var(--status-danger);
+  color: var(--status-danger);
+}
+
+.verdict--lit.verdict--hold {
+  border-color: var(--status-warning);
+  color: var(--status-warning);
+}
+
+/* ============================================================
    CTA link — single primary action per page
    See Visual System.md §2.11.
    ============================================================ */

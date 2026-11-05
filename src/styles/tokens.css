@@ -14,6 +14,7 @@
 
   /* Brand accent — patina copper-green. PROPOSED, calibrate from real samples. */
   --accent:          #3D6B5C;
+  --accent-hover:    #2E5247;
   --accent-soft:     #E8EFEC;
 
   /* Hairlines */
@@ -82,6 +83,7 @@
   --ink-tertiary:    #6B6B6B;
 
   --accent:          #7FAB99;
+  --accent-hover:    #9CC3B3;
   --accent-soft:     #22302C;
 
   --border:          rgba(236, 236, 236, 0.14);
@@ -103,6 +105,7 @@
     --ink-tertiary:    #6B6B6B;
 
     --accent:          #7FAB99;
+    --accent-hover:    #9CC3B3;
     --accent-soft:     #22302C;
 
     --border:          rgba(236, 236, 236, 0.14);

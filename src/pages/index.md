@@ -12,20 +12,26 @@ description: "Systems engineer building software for physical execution: geometr
 
 Geometry pipelines, fabrication automation, configurators, and field verification tools. I turn design intent and as-built reality into decisions crews and machines can act on.
 
-I call these calibrated instruments for physical work. Each turns messy field reality into an executable, verifiable decision.
+I call these calibrated instruments for physical work. Each turns messy field reality into an executable, verifiable decision. Three readings from the instruments on this site:
 
-<div class="instrument-readout-row">
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">SIGNAL</div>
-    <div class="instrument-readout__value">As-Built Scan</div>
+<div class="reading-grid">
+  <div class="reading-card">
+    <div class="reading__label">directive engine · residual</div>
+    <div class="reading__row"><span class="reading__value reading__value--small">6.6<span style="color:var(--ink-tertiary);font-weight:400"> → </span>0.0</span><span class="reading__unit">mm</span></div>
+    <svg class="scale" viewBox="0 0 200 18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="10" x2="196" y2="10" stroke="currentColor" stroke-width="0.8"/><line x1="36.0" y1="3" x2="36.0" y2="17" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/><circle cx="109.6" cy="10" r="3" fill="none" stroke="var(--status-danger)" stroke-width="1.2"/><circle cx="4" cy="10" r="3.5" fill="var(--accent)"/></svg>
+    <div class="reading__note">tol ±2.0 · 188 tests · <a href="/work/directive-engine/">deployed</a></div>
   </div>
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">OUTPUT</div>
-    <div class="instrument-readout__value">Directive Card</div>
+  <div class="reading-card">
+    <div class="reading__label">passthrough · drift ladder</div>
+    <div class="reading__row"><span class="reading__value reading__value--small">1.9e-3</span><span class="reading__unit">drift max, rung 1</span></div>
+    <svg class="scale" viewBox="0 0 200 18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="10" x2="196" y2="10" stroke="currentColor" stroke-width="0.8"/><circle cx="28" cy="10" r="3.5" fill="var(--accent)"/><circle cx="76" cy="10" r="3.5" fill="var(--accent)"/><circle cx="124" cy="10" r="3" fill="none" stroke="var(--status-danger)" stroke-width="1.2"/><line x1="168" y1="5" x2="176" y2="15" stroke="var(--ink-tertiary)" stroke-width="1"/><line x1="176" y1="5" x2="168" y2="15" stroke="var(--ink-tertiary)" stroke-width="1"/></svg>
+    <div class="reading__note">rung 3 ill-posed · rung 4 blocked · <a href="/work/passthrough/">validated</a></div>
   </div>
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">VERIFICATION</div>
-    <div class="instrument-readout__value">PASS/FAIL</div>
+  <div class="reading-card">
+    <div class="reading__label">compass · smoke suite</div>
+    <div class="reading__row"><span class="reading__value reading__value--small">23<span style="color:var(--ink-tertiary);font-weight:400"> / </span>1</span><span class="reading__unit">passed / skipped</span></div>
+    <svg class="scale" viewBox="0 0 200 18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="10" x2="196" y2="10" stroke="currentColor" stroke-width="0.8"/><line x1="4" y1="10" x2="188" y2="10" stroke="var(--accent)" stroke-width="3"/><line x1="188" y1="10" x2="196" y2="10" stroke="var(--ink-tertiary)" stroke-width="3"/></svg>
+    <div class="reading__note">stt phrase set not built · <a href="/work/compass/">in development</a></div>
   </div>
 </div>
 
