@@ -28,9 +28,7 @@
   --border: rgba(0,0,0,.12);
   --border-hover: rgba(0,0,0,.25);
 
-  /* Accent Colors */
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
+  /* Accent: defined once in tokens.css (patina). --accent-hover derives there. */
 
   /* Status Colors - Instrument Readings */
   --status-ok: #16a34a;
@@ -79,9 +77,6 @@
   --text-secondary: rgba(255,255,255,.65);
   --border: rgba(255,255,255,.12);
   --border-hover: rgba(255,255,255,.25);
-  --accent: #60a5fa;
-  --accent-hover: #93c5fd;
-
   /* Status Colors - Dark Mode (slightly brighter) */
   --status-ok: #22c55e;
   --status-ok-bg: rgba(34, 197, 94, 0.12);
@@ -120,8 +115,6 @@
     --text-secondary: rgba(255,255,255,.65);
     --border: rgba(255,255,255,.12);
     --border-hover: rgba(255,255,255,.25);
-    --accent: #60a5fa;
-    --accent-hover: #93c5fd;
     --status-ok: #22c55e;
     --status-ok-bg: rgba(34, 197, 94, 0.12);
     --status-pending: #eab308;

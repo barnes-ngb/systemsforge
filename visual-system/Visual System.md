@@ -347,6 +347,49 @@ The primary-action affordance for a page. Reserved for the single most important
 - Outlined patina border, no fill. Hover state fills with `accent-soft`. Never a solid green button.
 - Used for action affordances, NOT for status indicators. A CTA link says "do this thing." A status chip says "this thing is X."
 
+### 2.13 Readings
+
+A reading is a measured value shown the way an instrument shows it: the number large, the unit beside it, the label under it, and where a tolerance exists, a scale that places the value against the threshold and a verdict row that shows every state the instrument can return with the one it did return lit. Readings are what §2.10's readout cards were reserved for and had not yet received.
+
+Readings carry numbers that came out of an instrument. Never a category name, a feature, or a claim. If there is no number, there is no reading.
+
+```html
+<figure class="figure">
+  <div class="reading-row">
+    <div class="reading">
+      <div class="reading__label">before · worst panel</div>
+      <div class="reading__row"><span class="reading__value reading__value--fail">6.6</span><span class="reading__unit">mm</span></div>
+    </div>
+    <div class="reading">
+      <div class="reading__label">after · expected residual</div>
+      <div class="reading__row"><span class="reading__value reading__value--pass">0.0</span><span class="reading__unit">mm</span></div>
+    </div>
+    <div class="reading reading--end">
+      <div class="reading__label">verdict</div>
+      <div class="verdict-row"><span class="verdict verdict--lit">pass</span><span class="verdict">no</span><span class="verdict">blocked</span></div>
+    </div>
+  </div>
+  <svg class="scale" viewBox="0 0 680 56" role="img" aria-label="…">…</svg>
+  <figcaption class="figure__caption">fig 03 · deviation before and expected residual after, read against the declared tolerance</figcaption>
+</figure>
+```
+
+**The four parts:**
+
+- `reading`: value, unit, label. The value is mono, weight 500, tight tracking. Color carries the verdict and nothing else: accent for within tolerance, danger for outside, warning for pending. `reading__value--small` for a card.
+- `scale`: an inline SVG drawn to the figure skill's rules (`.claude/skills/figure`): a hairline axis with ticks, the tolerance as a dashed ink line, a limit as a dashed danger line, the before value as a hollow circle, the after value as a filled circle in its verdict color. Labels at 10px mono. The scale is what makes "6.6 mm" mean something; a reading with a tolerance and no scale is a number without context.
+- `verdict-row`: every state the instrument can return, in a row, one lit. "Pass" alone is a word. "Pass · no · blocked" with one lit is a measurement, because it shows what did not happen. The lit state takes the verdict color; the others stay tertiary.
+- `reading-card` in a `reading-grid`: the home page's form. A small reading, a small scale, a one-line note that links to the page by its honest status word.
+
+**Rules:**
+
+- A reading on a work page lives inside a `.figure` and gets a `fig NN` caption like any other figure. On the home page it lives in a `reading-card`. Nowhere else.
+- One accent. The patina marks a value within tolerance and the lit verdict; it does not decorate.
+- The states in a verdict row are the instrument's real states, in a fixed order, the same every time that instrument appears. Directive Engine: pass · no · blocked. passthrough's rungs: closed · ill-posed · blocked.
+- Numbers come from the repo, with the test or dataset that produced them named in the caption or note. A reading that cannot be traced to a file is removed, not rounded.
+- Readings are static on this site. The live version of the same patterns is the panel page in directive-engine (`sim/panel/console.js`), which this section was written from. When a pattern changes there, it changes here.
+- Density: a work page shows one readings figure per verification section. A grid of panels is the console form and belongs only on pages that are instruments themselves (the demo page, a live sim). The case study stays a document.
+
 ### 2.12 Site footer
 
 The single global footer that closes every page. Three jobs only: copyright, identity links, contact. Unlike `.writing-footer` (which is per-post), this is per-site.
@@ -459,4 +502,4 @@ Honest scope. The following are deliberately out of band, to be decided later or
 - **Forms.** The contact page has none; if it ever does, design at that point.
 - **Search / filter on the catalog.** Visible filter strip is sketched, behavior is not specified.
 - **Print stylesheet.** Worth doing eventually (your case studies would print beautifully) but not v1.
-- **Final accent color.** The proposed patina hex is calibrated for legibility but not sampled from your actual work. Worth a single short session to lock in.
+- **Final accent color.** The patina is now the single source of the accent (`tokens.css`; the blue in `global.css` is gone). Still not sampled from real work; worth a short session to lock in.

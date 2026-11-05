@@ -35,6 +35,24 @@ Vocabulary to draw with:
 
 What the style excludes: weight 600 or higher (the site allows 400 and 500 only), hardcoded hex, Inter or any sans in a figure, title text inside the SVG (the title is the caption), rounded corners above `--radius-md`, decorative paths, icons.
 
+## 2b. The scale and the verdict row
+
+Two readout elements are drawn often enough to have a fixed form. The Visual System spec (§2.13) places them on a page; this says how to draw them.
+
+The scale, at viewBox width W with a left margin of 20 and right margin of 20:
+
+- axis: `<line>` at y=30 from x=20 to x=W-20, `currentColor`, 0.8.
+- ticks: every unit, 4px tall, every fifth or the ends 8px; labels at 10px, `var(--ink-tertiary)`, under the axis at y=46; the last label carries the unit.
+- tolerance: a dashed `currentColor` line (3 3) from y=8 to y=38 at the tolerance's x, labelled "tol ±2.0" at 10px to its right.
+- limit: a dashed `var(--status-danger)` line (2 2) from y=14 to y=38, labelled "limit 10" to its left, text-anchor end.
+- before: a hollow circle r=4.5, stroke in the verdict color of the before value, with its value above at 10px.
+- after: a filled circle r=5 in the verdict color of the after value, with its value above.
+- a faint bar from 0 to the before value in the before color at opacity 0.35 is optional, and only when the axis starts at zero.
+
+The verdict row is HTML, not SVG: `.verdict-row` holding one `.verdict` per state the instrument can return, in the instrument's fixed order, `verdict--lit` on the one it did return, `verdict--fail` or `verdict--hold` added to the lit one for a failing or pending state.
+
+Inside a figure in `src/figures/`, draw the scale from data: the renderer takes `{min, max, unit, tol, limit, before, after}` and writes the SVG, so a page and a figure that show the same reading cannot disagree.
+
 ## 3. Mechanics
 
 Author inline `<svg>` by hand or from a script (section 4). Native shapes and `<text>` only. No `<script>`, `<style>`, `<foreignObject>`, no external images, no libraries.
