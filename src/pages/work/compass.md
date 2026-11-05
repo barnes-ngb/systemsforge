@@ -172,7 +172,7 @@ All three feed a layered memory store: rolling buffer, session transcript, sessi
   <h2>Instruments</h2>
 </div>
 
-This is the list the page exists to keep. Each entry says what the instrument can say no to. Entries get added as they are built; none get removed.
+This is the list the page exists to keep. Each entry says what the instrument can say no to, and shows its last reading and verdict. Two have returned a verdict; two have never run, and their rows stay unlit until they do. Entries get added as they are built; none get removed.
 
 <div class="artifact-card">
   <div class="artifact-card__header">
@@ -181,7 +181,17 @@ This is the list the page exists to keep. Each entry says what the instrument ca
   </div>
   <div><span class="artifact-card__field-label">reference </span>the protocols each provider must satisfy, mock inputs with known outputs</div>
   <div><span class="artifact-card__field-label">says no to </span>a wire-up change that breaks a mode without anyone running it</div>
-  <div><span class="artifact-card__field-label">reading  </span>23 passed, 1 skipped (no audio device on the test host), pre-hardware baseline</div>
+  <div class="reading-row" style="margin-top: var(--space-3)">
+    <div class="reading">
+      <div class="reading__label">reading · pytest, pre-hardware baseline</div>
+      <div class="reading__row"><span class="reading__value reading__value--small">23<span style="color:var(--ink-tertiary);font-weight:400"> / </span>1</span><span class="reading__unit">passed / skipped</span></div>
+      <div class="reading__note">the skip is the audio device absent on the test host</div>
+    </div>
+    <div class="reading reading--end">
+      <div class="reading__label">verdict</div>
+      <div class="verdict-row"><span class="verdict verdict--lit">pass</span><span class="verdict">no</span><span class="verdict">not run</span></div>
+    </div>
+  </div>
 </div>
 
 <div class="artifact-card">
@@ -191,6 +201,12 @@ This is the list the page exists to keep. Each entry says what the instrument ca
   </div>
   <div><span class="artifact-card__field-label">reference </span><code>typing.Protocol</code> contracts for glasses, vision, coach, audio, marked <code>runtime_checkable</code></div>
   <div><span class="artifact-card__field-label">says no to </span>a new hardware driver that claims the interface and does not implement it</div>
+  <div class="reading-row" style="margin-top: var(--space-3)">
+    <div class="reading reading--end">
+      <div class="reading__label">verdict · on the mock driver</div>
+      <div class="verdict-row"><span class="verdict verdict--lit">pass</span><span class="verdict">no</span><span class="verdict">not run</span></div>
+    </div>
+  </div>
 </div>
 
 <div class="artifact-card">
@@ -201,6 +217,16 @@ This is the list the page exists to keep. Each entry says what the instrument ca
   <div><span class="artifact-card__field-label">reference </span>a recorded set of shop and site phrases ("facade panels", part names, tolerances) with known transcripts</div>
   <div><span class="artifact-card__field-label">residual </span>word error rate on the set, per model</div>
   <div><span class="artifact-card__field-label">says no to </span>a faster STT model that cannot hear the vocabulary. The check that was done by ear, made repeatable</div>
+  <div class="reading-row" style="margin-top: var(--space-3)">
+    <div class="reading">
+      <div class="reading__label">reading · word error rate, small.en</div>
+      <div class="reading__row"><span class="reading__value reading__value--small" style="color:var(--ink-tertiary)">—</span><span class="reading__unit">no set to run against</span></div>
+    </div>
+    <div class="reading reading--end">
+      <div class="reading__label">verdict</div>
+      <div class="verdict-row"><span class="verdict">pass</span><span class="verdict">no</span><span class="verdict">not run</span></div>
+    </div>
+  </div>
 </div>
 
 <div class="artifact-card">
@@ -211,6 +237,16 @@ This is the list the page exists to keep. Each entry says what the instrument ca
   <div><span class="artifact-card__field-label">reference </span>the firmware protocol as inspected, pinned to a commit</div>
   <div><span class="artifact-card__field-label">residual </span>capture-to-host latency for a 640 px JPEG over BLE; tap reliability while worn; characters per HUD line at each font size</div>
   <div><span class="artifact-card__field-label">says no to </span>a driver that works in the SDK example and fails in the glance budget. Nothing here is measured yet; the playbook lists what to measure first</div>
+  <div class="reading-row" style="margin-top: var(--space-3)">
+    <div class="reading">
+      <div class="reading__label">reading · capture to host, 640 px jpeg</div>
+      <div class="reading__row"><span class="reading__value reading__value--small" style="color:var(--ink-tertiary)">—</span><span class="reading__unit">ms · no hardware</span></div>
+    </div>
+    <div class="reading reading--end">
+      <div class="reading__label">verdict</div>
+      <div class="verdict-row"><span class="verdict">pass</span><span class="verdict">no</span><span class="verdict">not run</span></div>
+    </div>
+  </div>
 </div>
 
 <div class="section-header">
