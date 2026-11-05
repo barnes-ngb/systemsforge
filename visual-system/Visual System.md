@@ -297,36 +297,9 @@ Closes every writing post (and any future post-template page like lab entries th
 - No share buttons, no subscribe forms, no comments, no social row, no headshot. The footer is restrained on purpose.
 - On lab pages (§2.8), the `.writing-footer` is not used — lab entries close more like log entries and need their own pattern when the time comes.
 
-### 2.10 Instrument readout
+### 2.10 Instrument readout (retired)
 
-A bordered card showing a labeled technical value, modeled on a real instrument-panel channel readout. Used on the homepage and anywhere else a single page-level "this is what the system measures / inputs / outputs" needs to be stated as a fact.
-
-**ALL CAPS labels are explicitly permitted on this pattern only**, as a carve-out from the sentence-case rule. The reason: ALL CAPS is the domain convention for instrument-channel labels (SIGNAL, INPUT, OUTPUT, GAIN, VERIFICATION). Honoring it reads as authentic; lowercasing it would read as wrong. The carve-out is scoped to this single class and does not generalize.
-
-```html
-<div class="instrument-readout-row">
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">SIGNAL</div>
-    <div class="instrument-readout__value">As-Built Scan</div>
-  </div>
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">OUTPUT</div>
-    <div class="instrument-readout__value">Directive Card</div>
-  </div>
-  <div class="instrument-readout">
-    <div class="instrument-readout__label">VERIFICATION</div>
-    <div class="instrument-readout__value">PASS/FAIL</div>
-  </div>
-</div>
-```
-
-**Rules:**
-
-- `instrument-readout__label`: ALL CAPS, mono, tertiary text color, tracking-wider. Always one word or one short phrase that names a real channel or aspect of the system.
-- `instrument-readout__value`: mono, primary text color, larger than the label, weight 500. Title Case is fine; domain conventions like `PASS/FAIL`, `±1mm`, `N/A` are explicitly permitted.
-- Use 2–4 readouts per row. Five or more starts looking like a stats wall.
-- Reserved for actual instrument-channel content. Do NOT use this pattern as a generic "three feature cards" replacement — that's the misuse this carve-out invites. If the content isn't genuinely a labeled technical reading, use prose or `.catalog-row` instead.
-- The pattern is most at home on the homepage. It can appear on case studies if the case study has a real measured/verified output worth surfacing as a readout.
+Replaced by §2.13 Readings. The carve-out that allowed ALL CAPS channel labels moves with it: `reading__label` is uppercase mono by rule. The old `.instrument-readout` classes are removed from `components.css`; nothing on the site used them after the home page was converted.
 
 ### 2.11 CTA link
 

@@ -529,43 +529,6 @@
 }
 
 /* ============================================================
-   Instrument readout — homepage / case study technical readouts
-   See Visual System.md §2.10.
-   ALL CAPS labels permitted (explicit carve-out for this pattern only).
-   ============================================================ */
-
-.instrument-readout-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-3);
-  margin: var(--space-5) 0;
-}
-
-.instrument-readout {
-  border: var(--border-thin) solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
-  background: var(--surface);
-}
-
-.instrument-readout__label {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wider);
-  color: var(--ink-tertiary);
-  text-transform: uppercase;
-  margin-bottom: var(--space-2);
-}
-
-.instrument-readout__value {
-  font-family: var(--font-mono);
-  font-size: var(--text-lg);
-  font-weight: 500;
-  color: var(--ink);
-  line-height: var(--lh-snug);
-}
-
-/* ============================================================
    Readings — a value with a unit, a scale against a threshold,
    a verdict row. See Visual System.md §2.13.
    ============================================================ */
